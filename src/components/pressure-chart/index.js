@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import Chart from "react-google-charts";
 
-class Main extends Component {
+class Pressure extends Component {
   render() {
     return (
       <div className="App">
@@ -9,11 +9,11 @@ class Main extends Component {
           chartType="ColumnChart"
           width="100%"
           height="400px"
-          data={data}
+          data={this.props.data}
         />
       </div>
     );
   }
 }
 
-export default Main;
+export default Pressure;

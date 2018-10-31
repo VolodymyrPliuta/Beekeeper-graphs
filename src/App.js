@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Main from './components/main-chart'
+import Pressure from './components/pressure-chart'
+
+const data = [
+  ["Date", "weight", "temperature", "humidity", "pressure kPa"],
+  ["2018/10 23:12", 25, 10, 40, 100],
+  ["2005/11 21:12", 28, 14, 42, 101],
+  ["2006/12 20:15", 29, 15, 35, 103],
+  ["2007/13 18:05", 30, 16, 50, 104],
+  ["2008/14 16:12", 34, 17, 32, 99]
+];
+
+let mainChartData = [];
+let pressureChartData = [];
+
+
+let streamer = data.map((obj, index) => {
+  if (index === 0) {
+    mainChartData.push(["Date", "weight", "temperature", "humidity"]);
+    pressureChartData.push(["Date", "weight", "temperature", "humidity"]);
+  }
+    mainChartData[index] = ([obj[0], obj[1], obj[2], obj[3]]);
+    pressureChartData[index] = ([obj[0], obj[4]])
+
+});
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Main data={mainChartData} />
+        <Pressure data={pressureChartData} />
       </div>
     );
   }

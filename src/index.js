@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Chart } from "react-google-charts";
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
